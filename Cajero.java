@@ -99,26 +99,31 @@ public class Cajero {
 		 * 
 		 */
 		int op1, op2, op3, op4;
+		boolean continuar=false;
 
-		System.out.println("|	**************Menu**************	|");
-		System.out.println("	1.-Administrador");
-		System.out.println("	2.-Cliente");
-		System.out.println("	3.-Salir");
-		op1 = a.nextInt();
-		switch (op1) {
-		case 1:
+		while (!continuar) {
+			System.out.println("|	**************Menu**************	|");
+			System.out.println("	1.-Administrador");
+			System.out.println("	2.-Cliente");
+			System.out.println("	3.-Salir");
+			op1 = a.nextInt();
+			switch (op1) {
+			case 1:
 
-			break;
-		case 2:
+				break;
+			case 2:
 
-			break;
-		case 3:
+				break;
+			case 3:
 
-			break;
+				break;
 
-		default:
-			break;
+			default:
+				
+				break;
+			}			
 		}
+		
 
 		
 		/**
