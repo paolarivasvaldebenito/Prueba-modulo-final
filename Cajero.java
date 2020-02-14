@@ -19,7 +19,70 @@ public class Cajero {
 		int cuenta;
 		int tipo_cuenta;
 		boolean seguir = false;
+		int x = 0;
 
+		// Menu cuenta
+
+//				System.out.println("|	**************Menu**************	|");
+//				
+//				System.out.println("	1.-Crear cuenta");
+//				
+//				System.out.println("	2.-Ingresar rut del cliente");
+//				
+//				System.out.println("	3.-Ingresar nombre del cliente");
+//				
+//				System.out.println("	4.-Crear clave inicial");
+//				
+//				System.out.println("	5.-Salir");
+//
+//			
+//				//Menu cliente
+//			
+//				System.out.println("|	**************Menu**************	|");
+//				
+//				System.out.println("	1.-Abonar");
+//				
+//				System.out.println("	2.-Retirar");
+//				
+//				System.out.println("	3.-Consulta de Saldo");
+//				
+//				System.out.println("	4.-Cambio de clave");
+//				
+//				System.out.println("	5.-Ver ultimos movimientos");
+//				
+//				System.out.println("	6.-Salir");
+//				
+//				
+//				
+//				//Menu Administrador
+//				
+//				
+//				System.out.println("|	**************Menu**************	|");
+//				
+//				System.out.println("	1.-Crear cuenta");
+//				
+//				System.out.println("	2.-Crear cliente");
+//				
+//				System.out.println("	3.-Mostrar cliente");
+//				
+//				System.out.println("    4.-Salir");
+//				
+//				
+//				
+//				//Menu inicial
+//				
+//				System.out.println("|	**************Menu**************	|");
+//				
+//				System.out.println("	1.-Administrador");
+//				
+//				System.out.println("	2.-Cliente");
+//				
+//				System.out.println("	3.-Salir");
+//				
+//				
+//				
+//			}
+//		}
 //		private String nombre;
 //		private String apellido;
 //		private String rut;
@@ -29,29 +92,64 @@ public class Cajero {
 //		private String clave;
 //		private long saldo;
 
-		// !)
-		List<Cliente> c1 = new LinkedList<Cliente>();
-		List<Cuenta> q1 = new LinkedList<Cuenta>();
-
-		Cliente c0 = new Cliente();
-		Cuenta q0 = new Cuenta();
-
-		System.out.println("Ingrese nombre:");
-		a1 = a.next();
-		c0.setNombre(a1);
-
-		System.out.println("Ingrese apellido:");
-		a2 = a.next();
-		c0.setNombre(a2);
-
-		System.out.println("Ingrese rut:");
-		a3 = a.next();
-		c0.setNombre(a3);
-
 		/**
-		 * Ingreso de cuenta
+		 * ****************************************************************************
+		 * ****************************************************************************
+		 * variale de opciones
+		 * 
 		 */
+		int op1, op2, op3, op4;
+
+		System.out.println("|	**************Menu**************	|");
+		System.out.println("	1.-Administrador");
+		System.out.println("	2.-Cliente");
+		System.out.println("	3.-Salir");
+		op1 = a.nextInt();
+		switch (op1) {
+		case 1:
+
+			break;
+		case 2:
+
+			break;
+		case 3:
+
+			break;
+
+		default:
+			break;
+		}
+
+		
+		/**
+		 * *******************************************************************************
+		 * * *******************************************************************************
+		 * * *******************************************************************************
+		 */
+		List<Cliente> c1 = new LinkedList<Cliente>();
+
+		// List<Cuenta> q1 = new LinkedList<Cuenta>();
+
 		while (!seguir) {
+
+			Cliente c0 = new Cliente();
+			Cuenta q0 = new Cuenta();
+
+			System.out.println("Ingrese nombre:");
+			a1 = a.next();
+			c0.setNombre(a1);
+
+			System.out.println("Ingrese apellido:");
+			a2 = a.next();
+			c0.setApellido(a2);
+
+			System.out.println("Ingrese rut:");
+			a3 = a.next();
+			c0.setRut(a3);
+
+			/**
+			 * Ingreso de cuenta
+			 */
 
 			do {
 				System.out.println("Ingrese tipo de cuenta:");
@@ -84,8 +182,7 @@ public class Cajero {
 			System.out.println("Ingrese saldo:");
 			saldo = a.nextInt();
 			q0.setSaldo(saldo);
-			
-			
+
 			System.out.println("Desea ingresar otra cuenta:");
 			System.out.println("1) SI");
 			System.out.println("2) NO");
@@ -95,13 +192,15 @@ public class Cajero {
 					seguir = true;
 				}
 			} while (cuenta < 1 || cuenta > 2);
+			// q1.add(q0);
+			c0.setCut(q0);
+			c1.add(c0);
+
 		}
 
-		
-
-		
-		q1.add(q0);
-		c0.setCut(q1);
+		for (Cliente cliente : c1) {
+			System.out.println(cliente);
+		}
 	}
 
 }
