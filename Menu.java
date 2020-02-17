@@ -3,14 +3,13 @@ package menu;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
 import cajero.Cliente;
 import cajero.Cuenta;
 import cajero.Cuenta.Tipo;
 
 public class Menu {
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings({ "unused", "resource" })
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -234,6 +233,7 @@ public class Menu {
 								 * variables locales
 								 */
 								int abono, retirar, opcionClave, abonoFinal = 0;
+								int saldoRetirar = 0;
 								String claveFinal;
 
 								switch (op2) {
@@ -259,14 +259,15 @@ public class Menu {
 									retirar = a.nextInt();
 
 									if (c1.get(i).getCut().getSaldo() > retirar) {
-										System.out.println("finalmente su saldo es $" + ((c1.get(i).getCut().getSaldo())-retirar)
-												+ " ya que ha retirado de su cuenta $" + retirar);
-										
+										System.out.println(
+												"finalmente su saldo es $" + ((c1.get(i).getCut().getSaldo()) - retirar)
+														+ " ya que ha retirado de su cuenta $" + retirar);
+										saldoRetirar = (int) ((c1.get(i).getCut().getSaldo()) - retirar);
+										c1.get(i).getCut().setSaldo(saldoRetirar);
+
 									} else {
 										System.out.println("Su monto a retirar es mayor a lo que tiene :(");
 									}
-
-									
 
 									break;
 								case 3:
@@ -290,6 +291,8 @@ public class Menu {
 										c1.get(i).getCut().setClave(claveFinal);
 
 										System.out.println("Finalmente su clave ha sido cambiada");
+									} else {
+										main(args);
 									}
 
 									break;
