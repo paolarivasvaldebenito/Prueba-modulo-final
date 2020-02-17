@@ -53,21 +53,25 @@ public class Cuenta {
 		this.clave = clave;
 	}
 
-	public void abonar() {
-
-	}
-
-	public void retirar() {
-
-	}
-
-	public void consultar() {
-
-	}
-
-	public void cambiarClave() {
-
-	}
+//	public void abonar() {
+//
+//	}
+//
+//	public void retirar() {
+//
+//	}
+//
+//	public void consultar_saldo() {
+//
+//	}
+//
+//	public void cambiarClave() {
+//
+//	}
+	
+//	public void ver_ultimos_movimientos() {
+//
+//	}
 
 	@Override
 	public String toString() {

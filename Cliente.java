@@ -7,6 +7,7 @@ public class Cliente {
 	private String apellido;
 	private String rut;
 	private Cuenta cut;
+	
 
 	public Cliente(String nombre, String apellido, String rut, Cuenta cut) {
 		this.nombre = nombre;
