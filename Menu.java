@@ -4,33 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-import cajero.Cliente;
-import cajero.Cuenta;
 import cajero.Cuenta.Tipo;
 
 public class Menu {
-//	public static void abonar(int abono) {
-//		
-//              for (Cliente cliente : c1) {
-//				
-//			}
-//	}
-//
-//	public void retirar() {
-//
-//	}
-//
-//	public void consultar_saldo() {
-//
-//	}
-//
-//	public void cambiarClave() {
-//
-//	}
 
-//	public void ver_ultimos_movimientos() {
-//
-//	}
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -48,6 +25,55 @@ public class Menu {
 		boolean continuar = false;
 		int[][] ultomosMovimientos = new int[10][4];
 		List<Cliente> c1 = new LinkedList<Cliente>();
+		
+		
+		/**
+		 * datos de pruebas
+		 */
+		
+		Cliente c0 = new Cliente();
+		c0.setNombre("Mario");
+		c0.setApellido("uUribe");
+		c0.setRut("17570857k");
+		c0.setCut(cut);
+		
+		Cliente c0 = new Cliente();
+		c0.setNombre("Mario");
+		c0.setApellido("uUribe");
+		c0.setRut("17570857k");
+		c0.setCut(cut);
+		
+		Cliente c0 = new Cliente();
+		c0.setNombre("Mario");
+		c0.setApellido("uUribe");
+		c0.setRut("17570857k");
+		c0.setCut(cut);
+		
+		Cliente c0 = new Cliente();
+		c0.setNombre("Mario");
+		c0.setApellido("uUribe");
+		c0.setRut("17570857k");
+		c0.setCut(cut);
+		
+		Cliente c0 = new Cliente();
+		c0.setNombre("Mario");
+		c0.setApellido("uUribe");
+		c0.setRut("17570857k");
+		c0.setCut(cut);
+		
+		Cliente c0 = new Cliente();
+		c0.setNombre("Mario");
+		c0.setApellido("uUribe");
+		c0.setRut("17570857k");
+		c0.setCut(cut);
+		
+		Cuenta q0 = new Cuenta();
+		
+		
+		/**
+		 * 
+		 */
+		boolean creada=false;
 
 		while (!continuar) {
 			System.out.println("|	**************Menu principal**************	|");
@@ -163,6 +189,8 @@ public class Menu {
 
 					break;
 				case 2:
+					
+					
 					System.out.println("\n**************Credenciales Usuario**************	:");
 
 					System.out.println("Ingresar el rut del usuario:");
@@ -170,108 +198,112 @@ public class Menu {
 
 					System.out.println("Ingresar la contraseña del usuario:");
 					user2 = a.next();
-					try {
-						for (int i = 0; i < c1.size(); i++) {
+
+					for (int i = 0; i < c1.size(); i++) {
 //		System.out.println(c1.get(i).getRut());
 //		System.out.println(c1.get(i).getCut().getClave());
 //		System.out.println(c1.get(i).getCut().getSaldo());
 
-							if (pass2.equalsIgnoreCase(c1.get(i).getRut())
-									&& user2.equalsIgnoreCase(c1.get(i).getCut().getClave())) {
-								System.out.println("|	**************Menu Usuario**************	|");
+						if (pass2.equalsIgnoreCase(c1.get(i).getRut())
+								&& user2.equalsIgnoreCase(c1.get(i).getCut().getClave())) {
 
-								System.out.println("	1.-Abonar");
+							System.out.println("|	**************Menu Usuario**************	|");
 
-								System.out.println("	2.-Retirar");
+							System.out.println("	1.-Abonar");
 
-								System.out.println("	3.-Consulta de Saldo");
+							System.out.println("	2.-Retirar");
 
-								System.out.println("	4.-Cambio de clave");
+							System.out.println("	3.-Consulta de Saldo");
 
-								System.out.println("	5.-Ver ultimos movimientos");
+							System.out.println("	4.-Cambio de clave");
 
-								System.out.println("	6.-Salir");
-								op2 = a.nextInt();
-								do {
-									/**
-									 * variables locales
-									 */
-									int abono, retirar, opcionClave, abonoFinal = 0;
-									String claveFinal;
-									switch (op2) {
-									case 1:
-										System.out.println("Abonar");
+							System.out.println("	5.-Ver ultimos movimientos");
 
-										if (c1.get(i).getCut().getSaldo() > 0) {
-											System.out.println("Ingresar el monto a abonar:");
-											abono = a.nextInt();
+							System.out.println("	6.-Salir");
+							op2 = a.nextInt();
+							do {
+								/**
+								 * variables locales
+								 */
+								int abono, retirar, opcionClave, abonoFinal = 0;
+								String claveFinal;
+								
+								
+								switch (op2) {
+								case 1:
+									System.out.println("Abonar");
 
-											abonoFinal = c1.get(i).getCut().getCuenta() + abono;
-											c1.get(i).getCut().setSaldo(abonoFinal);
-										}
+									if (c1.get(i).getCut().getSaldo() > 0) {
+										System.out.println("Ingresar el monto a abonar:");
+										abono = a.nextInt();
 
-										System.out.println("finalmente su saldo es :" + c1.get(i).getCut().getSaldo());
-
-										break;
-									case 2:
-										System.out.println("Retirar");
-
-										System.out.println("Ingresar el monto a retirar:");
-										retirar = a.nextInt();
-
-										if (c1.get(i).getCut().getSaldo() > retirar) {
-
-											abonoFinal = c1.get(i).getCut().getCuenta() - retirar;
-											c1.get(i).getCut().setSaldo(abonoFinal);
-										} else {
-											System.out.println("Su monto a retirar es mayor a lo que tiene :(");
-										}
-
-										System.out.println("finalmente su saldo es $" + c1.get(i).getCut().getSaldo()
-												+ " ya que ha retirado de su cuenta $" + retirar);
-
-										break;
-									case 3:
-
-										System.out.println(" Consulta de Saldo");
-
-										System.out.println("Su saldo es $" + c1.get(i).getCut().getSaldo());
-										break;
-									case 4:
-
-										System.out.println(" Cambio de clave");
-
-										System.out.println("¿Esta seguro que desea cambiar su clave?");
-										System.out.println("1- SI");
-										System.out.println("2- NO");
-										opcionClave = a.nextInt();
-										if (opcionClave == 1) {
-											System.out.println("Ingrese su clave:");
-											claveFinal = a.next();
-
-											c1.get(i).getCut().setClave(claveFinal);
-
-											System.out.println("Finalmente su clave ha sido cambiada");
-										}
-
-										break;
-									case 5:
-
-										System.out.println(" Ver ultimos movimientos");
-
-										break;
-									case 6:
-
-										System.out.println(" adios");
-										break;
+										abonoFinal = c1.get(i).getCut().getCuenta() + abono;
+										c1.get(i).getCut().setSaldo(abonoFinal);
 									}
 
-								} while (op1 < 1 && op1 > 6);
+									System.out.println("finalmente su saldo es :" + c1.get(i).getCut().getSaldo());
 
-							}
+									break;
+								case 2:
+									System.out.println("Retirar");
+
+									System.out.println("Ingresar el monto a retirar:");
+									retirar = a.nextInt();
+
+									if (c1.get(i).getCut().getSaldo() > retirar) {
+
+										abonoFinal = c1.get(i).getCut().getCuenta() - retirar;
+										c1.get(i).getCut().setSaldo(abonoFinal);
+									} else {
+										System.out.println("Su monto a retirar es mayor a lo que tiene :(");
+									}
+
+									System.out.println("finalmente su saldo es $" + c1.get(i).getCut().getSaldo()
+											+ " ya que ha retirado de su cuenta $" + retirar);
+
+									break;
+								case 3:
+
+									System.out.println(" Consulta de Saldo");
+
+									System.out.println("Su saldo es $" + c1.get(i).getCut().getSaldo());
+									break;
+								case 4:
+
+									System.out.println(" Cambio de clave");
+
+									System.out.println("¿Esta seguro que desea cambiar su clave?");
+									System.out.println("1- SI");
+									System.out.println("2- NO");
+									opcionClave = a.nextInt();
+									if (opcionClave == 1) {
+										System.out.println("Ingrese su clave:");
+										claveFinal = a.next();
+
+										c1.get(i).getCut().setClave(claveFinal);
+
+										System.out.println("Finalmente su clave ha sido cambiada");
+									}
+
+									break;
+								case 5:
+
+									System.out.println(" Ver ultimos movimientos");
+
+									break;
+								case 6:
+
+									System.out.println(" adios");
+									break;
+								}
+
+							} while (op1 < 1 && op1 > 6);
+							
+							creada=true;
 						}
-					} catch (Exception e) {
-						System.out.println("El usuario no existe");
+						if (creada==false) {
+							System.out.println("el usuario no esta creado!!");
+						}
 					}
 
 					break;
