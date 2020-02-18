@@ -1,5 +1,6 @@
 package cajero;
 
+
 import java.util.List;
 
 public class Cliente {
@@ -7,6 +8,8 @@ public class Cliente {
 	private String apellido;
 	private String rut;
 	private Cuenta cut;
+	private List<String> registro;
+	
 	
 
 	public Cliente(String nombre, String apellido, String rut, Cuenta cut) {
@@ -51,10 +54,24 @@ public class Cliente {
 		this.cut = cut;
 	}
 
+	public List<String> getRegistro() {
+		return registro;
+	}
+
+	public void setRegistro(List<String> registro) {
+		this.registro = registro;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [nombre=" + nombre + ", apellido=" + apellido + ", rut=" + rut + ", cut=" + cut + "]";
 	}
 
+
+	public String toString2() {
+		return "Cliente [registro=" + registro + "]";
+	}
+
+	
 
 }

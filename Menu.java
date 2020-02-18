@@ -1,5 +1,7 @@
 package menu;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,10 +11,10 @@ import cajero.Cuenta.Tipo;
 
 public class Menu {
 
-	@SuppressWarnings({ "unused", "resource" })
+	@SuppressWarnings({ "unused", "resource", "null" })
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Date fechaDate = new Date();
 		Scanner a = new Scanner(System.in);
 		int op1, op2, op3, op4;
 		String pass1, user1, pass2, user2;
@@ -24,11 +26,11 @@ public class Menu {
 		boolean seguir = false;
 		int x = 0;
 		boolean continuar = false;
-		int[][] ultomosMovimientos = new int[10][4];
 		List<Cliente> c1 = new LinkedList<Cliente>();
+		List<String> registro = new ArrayList<String>();
 
 		/**
-		 * datos de pruebas
+		 * datos de pruebas o seeder
 		 */
 		Cuenta m0 = new Cuenta();
 		m0.setClave("12345");
@@ -78,9 +80,8 @@ public class Menu {
 		c1.add(x2);
 		c1.add(x3);
 		c1.add(x4);
-
 		/**
-		 * 
+		 * ********************************************
 		 */
 		boolean creada = false;
 
@@ -116,69 +117,71 @@ public class Menu {
 							switch (op2) {
 							case 1:
 								System.out.println("creando cliente............");
-//								while (!seguir) {
-//									Cliente c0 = new Cliente();
-//									Cuenta q0 = new Cuenta();
-//
-//									System.out.println("Ingrese nombre:");
-//									a1 = a.next();
-//									c0.setNombre(a1);
-//
-//									System.out.println("Ingrese apellido:");
-//									a2 = a.next();
-//									c0.setApellido(a2);
-//
-//									System.out.println("Ingrese rut:");
-//									a3 = a.next();
-//									c0.setRut(a3);
-//
-//									/**
-//									 * Ingreso de cuenta
-//									 */
-//
-//									do {
-//										System.out.println("Ingrese tipo de cuenta:");
-//										System.out.println("1) Ahorro:");
-//										System.out.println("2) corriente:");
-//										System.out.println("3) Vista:");
-//
-//										tipo_cuenta = a.nextInt();
-//
-//										switch (tipo_cuenta) {
-//										case 1:
-//											q0.setTipo(Tipo.ahorro);
-//											break;
-//										case 2:
-//											q0.setTipo(Tipo.corriente);
-//											break;
-//										case 3:
-//											q0.setTipo(Tipo.vista);
-//											break;
-//										}
-//
-//									} while (tipo_cuenta < 1 || tipo_cuenta > 3);
-//
-//									// 2)
-//
-//									System.out.println("Ingrese clave:");
-//									clave = a.next();
-//									q0.setClave(clave);
-//
-//									System.out.println("Ingrese saldo:");
-//									saldo = a.nextInt();
-//									q0.setSaldo(saldo);
-//
-//									System.out.println("Desea ingresar otra cuenta:");
-//									System.out.println("1) SI");
-//									System.out.println("2) NO");
-//									do {
-//										cuenta = a.nextInt();
-//										if (cuenta == 2) {
-//											seguir = true;
-//										}
-//									} while (cuenta < 1 || cuenta > 2);
-//									// q1.add(q0);
-//									c0.setCut(q0);
+								while (!seguir) {
+									Cliente c0 = new Cliente();
+									Cuenta q0 = new Cuenta();
+
+									System.out.println("Ingrese nombre:");
+									a1 = a.next();
+									c0.setNombre(a1);
+
+									System.out.println("Ingrese apellido:");
+									a2 = a.next();
+									c0.setApellido(a2);
+
+									System.out.println("Ingrese rut:");
+									a3 = a.next();
+									c0.setRut(a3);
+
+									/**
+									 * Ingreso de cuenta
+									 */
+
+									do {
+										System.out.println("Ingrese tipo de cuenta:");
+										System.out.println("1) Ahorro:");
+										System.out.println("2) corriente:");
+										System.out.println("3) Vista:");
+
+										tipo_cuenta = a.nextInt();
+
+										switch (tipo_cuenta) {
+										case 1:
+											q0.setTipo(Tipo.ahorro);
+											break;
+										case 2:
+											q0.setTipo(Tipo.corriente);
+											break;
+										case 3:
+											q0.setTipo(Tipo.vista);
+											break;
+										}
+
+									} while (tipo_cuenta < 1 || tipo_cuenta > 3);
+
+									// 2)
+
+									System.out.println("Ingrese clave:");
+									clave = a.next();
+									q0.setClave(clave);
+
+									System.out.println("Ingrese saldo:");
+									saldo = a.nextInt();
+									q0.setSaldo(saldo);
+
+									System.out.println("Desea ingresar otra cuenta:");
+									System.out.println("1) SI");
+									System.out.println("2) NO");
+									do {
+										cuenta = a.nextInt();
+										if (cuenta == 2) {
+											seguir = true;
+										}
+									} while (cuenta < 1 || cuenta > 2);
+									// q1.add(q0);
+									c0.setCut(q0);
+									c1.add(c0);
+								}
 								break;
 							case 2:
 								System.out.println("\nmostrar cliente:");
@@ -207,9 +210,6 @@ public class Menu {
 					user2 = a.next();
 
 					for (int i = 0; i < c1.size(); i++) {
-//		System.out.println(c1.get(i).getRut());
-//		System.out.println(c1.get(i).getCut().getClave());
-//		System.out.println(c1.get(i).getCut().getSaldo());
 
 						if (pass2.equalsIgnoreCase(c1.get(i).getRut())
 								&& user2.equalsIgnoreCase(c1.get(i).getCut().getClave())) {
@@ -234,7 +234,7 @@ public class Menu {
 								 */
 								int abono, retirar, opcionClave, abonoFinal = 0;
 								int saldoRetirar = 0;
-								String claveFinal;
+								String claveFinal, registro1, registro2, registro3, registro4;
 
 								switch (op2) {
 								case 1:
@@ -245,11 +245,14 @@ public class Menu {
 									if (abono < 0) {
 										abono = 0;
 									}
-//										abonoFinal = c1.get(i).getCut().getCuenta() + abono;
-//										c1.get(i).getCut().setSaldo(abonoFinal);
 
+									registro1 = "se realizo un abono de " + abono + " ," + fechaDate;
+									registro.add(registro1);
+
+									abonoFinal = (int) ((c1.get(i).getCut().getSaldo()) + abono);
+									c1.get(i).getCut().setSaldo(abonoFinal);
 									System.out.println(
-											"finalmente su saldo es :" + ((c1.get(i).getCut().getSaldo()) - abono));
+											"finalmente su saldo es $" + (c1.get(i).getCut().getSaldo()));
 
 									break;
 								case 2:
@@ -259,11 +262,16 @@ public class Menu {
 									retirar = a.nextInt();
 
 									if (c1.get(i).getCut().getSaldo() > retirar) {
-										System.out.println(
-												"finalmente su saldo es $" + ((c1.get(i).getCut().getSaldo()) - retirar)
-														+ " ya que ha retirado de su cuenta $" + retirar);
+										
 										saldoRetirar = (int) ((c1.get(i).getCut().getSaldo()) - retirar);
 										c1.get(i).getCut().setSaldo(saldoRetirar);
+										System.out.println(
+												"finalmente su saldo es $" + ((c1.get(i).getCut().getSaldo()))
+														+ " ya que ha retirado de su cuenta $" + retirar);
+										
+
+										registro2 = "ha retirado el monto de " + retirar + " ," + fechaDate;
+										registro.add(registro2);
 
 									} else {
 										System.out.println("Su monto a retirar es mayor a lo que tiene :(");
@@ -275,6 +283,9 @@ public class Menu {
 									System.out.println(" Consulta de Saldo");
 
 									System.out.println("Su saldo es $" + c1.get(i).getCut().getSaldo());
+
+									registro3 = "realizo una consulta de saldo ," + fechaDate;
+									registro.add(registro3);
 									break;
 								case 4:
 
@@ -291,15 +302,23 @@ public class Menu {
 										c1.get(i).getCut().setClave(claveFinal);
 
 										System.out.println("Finalmente su clave ha sido cambiada");
+
+										registro4 = "Ha realizado un cambio de contraseña" + " ," + fechaDate;
+										registro.add(registro4);
+
 									} else {
 										main(args);
 									}
 
 									break;
 								case 5:
-
-									System.out.println(" Ver ultimos movimientos");
-
+									if (c1.get(i).getRegistro() == null) {
+										System.out.println("No hay ultimos movimientos");
+									} else {
+										c1.get(i).setRegistro(registro);
+										System.out.println(" Ver ultimos movimientos:");
+										System.out.println(c1.get(i).toString2());
+									}
 									break;
 								case 6:
 
@@ -309,11 +328,8 @@ public class Menu {
 
 							} while (op1 < 1 && op1 > 6);
 
-							creada = true;
 						}
-						if (creada == false) {
-							System.out.println("el usuario no esta creado!!");
-						}
+
 					}
 
 					break;

@@ -1,11 +1,12 @@
 package cajero;
 
 public class Cuenta {
-	@SuppressWarnings("unused")
+
 	private int cuenta;
 	private Tipo tipo;
 	private String clave;
 	private long saldo;
+	
 
 	public enum Tipo {
 		ahorro, corriente, vista
@@ -53,25 +54,6 @@ public class Cuenta {
 		this.clave = clave;
 	}
 
-//	public void abonar() {
-//
-//	}
-//
-//	public void retirar() {
-//
-//	}
-//
-//	public void consultar_saldo() {
-//
-//	}
-//
-//	public void cambiarClave() {
-//
-//	}
-	
-//	public void ver_ultimos_movimientos() {
-//
-//	}
 
 	@Override
 	public String toString() {
